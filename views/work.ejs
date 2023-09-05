@@ -1,0 +1,30 @@
+<%- include("partials/header.ejs") %>
+
+<main class="w-full max-[600px]:w-4/5">
+    <div class="flex flex-col flex-wrap items-center xl:top-[80px] w-full">
+        <div class="bg-[#666666] h-[70px] w-[400px] flex justify-center items-center rounded-t-3xl border-t-4 border-l-4 border-r-4 border-b-2 border-black rboxshad">
+            <p class="text-white font-bold text-3xl"><%= daynames[day] %>, <%=monthnames[month]%> <%= dayt %></p>
+        </div>
+
+        <form class="grid grid-flow-col bg-[#666666] h-[60px] w-[400px] border-l-4 border-r-4 border-b-2 border-black rboxshad" action="/adder" method="POST">
+            <input type="text" name="newItem" placeholder=" New Item" autocomplete="off" required="" class="h-[42px] w-[320px] relative left-[10px] top-[9px] rounded-2xl border border-black">
+            <button type="submit" name="submit-button" class="rounded-full h-[42px] w-[42px] border-2 relative left-[8px] top-[9px] border-black bg-white text-black bish">+</button>
+        </form>
+
+            <div class="box bg-[#F4E1C2] h-[510px] w-[400px] overflow-auto rounded-b-3xl border-l-4 border-r-4 border-b-4 border-black rboxshad">
+                <div class="box bg-[#F4E1C2] h-[500px] w-[400px] overflow-y-auto overflow-x-auto">
+                <% for(var i = listItems.length -1; i >= 0; i--){ %>
+                    <div class="flex">
+                      <input type="checkbox" id="todo" name="checker" class="h-7 w-7 m-3 flex-shrink-0">
+                      <label for="todo" class="text-[32px] font-[200]"><%= listItems[i] %></label>
+                    </div>
+                <% } %>
+                </div>
+            </div>             
+    </div>
+    </main>
+    
+<%- include("partials/footer.ejs") %>
+
+
+
